@@ -23,7 +23,8 @@
         color: white;
     }
 </style>
-
+<h2><center>LAPORAN PENDAPATAN KEUANGAN</center></h2>
+<h2><center>BULAN JUNI 2021</center></h2>
 <table id="order" width="100%">
 <thead>
                         <tr>
