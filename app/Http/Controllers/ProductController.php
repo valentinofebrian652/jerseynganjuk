@@ -22,7 +22,7 @@ class ProductController extends Controller
     public function index()
     {
         $title = 'Master Product';
-        $products = Product::orderBy('name','asc')->get();
+        $products = Product::orderBy('created_at','desc')->get();
         return view('products.index', compact('title','products'));
     }
 

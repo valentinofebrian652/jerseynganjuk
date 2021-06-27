@@ -19,7 +19,7 @@ class ReportController extends Controller
         ])
             ->where('status','dibayar')
             ->groupBy('date')
-            ->orderBy('date','desc')
+            ->orderBy('date','asc')
             ->get();
 
         $totals = Order::
@@ -60,7 +60,7 @@ class ReportController extends Controller
         ])
             ->where('status','dibayar')
             ->groupBy('date')
-            ->orderBy('date','desc')
+            ->orderBy('date','asc')
             ->get();
 
         $totals = Order::
