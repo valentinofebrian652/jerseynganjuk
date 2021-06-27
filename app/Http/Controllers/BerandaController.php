@@ -11,6 +11,7 @@ use Session;
 
 class BerandaController extends Controller
 {
+    
     public function index()
     {
         $products = Product::orderBy('id','desc')->where('status','publish')->get();

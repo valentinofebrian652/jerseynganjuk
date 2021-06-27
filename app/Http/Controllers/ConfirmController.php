@@ -6,6 +6,8 @@ use App\Confirm;
 use App\Order;
 use Illuminate\Http\Request;
 use Auth;
+use App\Product;
+use App\Order_Product;
 use Session;
 
 class ConfirmController extends Controller
@@ -37,9 +39,6 @@ class ConfirmController extends Controller
         $order = Order::where('id',$order_id)->first();
         $order->status = 'menunggu verifikasi';
         $order->save();
-
-       
-// pengurangan stok dan update
 
         Session::flash('status','Konfirmasi Bukti Pembayaran Berhasil Dikirim');
         return redirect('invoice/list');

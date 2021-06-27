@@ -17,6 +17,10 @@ use App\Order_Product;
 
 class CartController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('role:customer');
+    }
     public function index()
     {
         $products = Cart::content();

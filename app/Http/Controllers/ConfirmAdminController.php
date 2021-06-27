@@ -8,6 +8,7 @@ use App\Product;
 use Auth;
 use App\Order_Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Session;
 
 class ConfirmAdminController extends Controller
@@ -35,12 +36,12 @@ class ConfirmAdminController extends Controller
         $confirm->status_order = 'dibayar';
         $confirm->save();
 
-        $order_product = Order_Product::findOrFail($order_id);
-
-        $product = Product::findOrFail($order_product->product_id);
-        $product->stock -= $order_product->qty;
-        $product->update();
-
+        $order_product = Order_Product::where('order_id', $order_id)->get();;
+        foreach ($order_product as $op){
+            $product = Product::find($op->product_id);
+            $product->stock = $product->stock - $op -> qty;
+            $product ->update();
+        }
         Session::flash('status','Berhasil di konfirmasi dengan status di terima');
         return redirect()->route('confirmAdmin');
     }
@@ -64,5 +65,6 @@ class ConfirmAdminController extends Controller
         $details = Order_Product::where('order_id',$id)->get();
         $identity = Order_Product::where('order_id',$id)->first();
         return view('confirm.detail', compact('details', 'identity'));
+
     }
 }

@@ -21,8 +21,8 @@
 
                 <!-- /.box-header -->
                 <div class="box-body">
-                <h4><center>LAPORAN PENDAPATAN KEUANGAN</center></h4>
-<h4><center>BULAN JUNI 2021</center></h4>
+                <h4><center> <strong> LAPORAN PENDAPATAN KEUANGAN</strong></center></h4>
+<h4><center><strong>BULAN JUNI 2021</strong></center></h4>
                     <table id="myTable" class="table table-bordered table-hover">
                         <thead>
                         <tr>

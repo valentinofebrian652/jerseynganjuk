@@ -35,7 +35,7 @@
 
                     <div class="form-group">
                         <label>Alamat</label>
-                        <textarea name="address" class="form-control"  cols="26" rows="5"></textarea>
+                        <textarea name="address" class="form-control"  cols="26" rows="5" required></textarea>
                     </div>
                 <!-- /.box-body -->
 
