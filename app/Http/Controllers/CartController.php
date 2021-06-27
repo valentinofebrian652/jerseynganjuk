@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\Checkout;
-use App\Mail\CheckoutMail;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
 use Session;
 use Cart;
 use App\Order;
@@ -24,7 +21,6 @@ class CartController extends Controller
     public function index()
     {
         $products = Cart::content();
-//       dd($products);
         return view('front.shopping_cart', compact('products'));
     }
 

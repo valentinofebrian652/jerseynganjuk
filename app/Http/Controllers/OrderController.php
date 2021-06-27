@@ -30,27 +30,4 @@ class OrderController extends Controller
         $identity = Order_Product::where('order_id',$id)->first();
         return view('order.detail', compact('details', 'identity'));
     }
-
-    public function exportPDF()
-    {
-        $orders = Order::select([
-            \DB::raw('sum(total_price) as total'),
-            \DB::raw('date')
-        ])
-            ->where('status','dibayar')
-            ->groupBy('date')
-            ->orderBy('date','desc')
-            ->get();
-
-        $totals = Order::
-        selectRaw('sum(total_price) as total')->where('status', 'dibayar') 
-        ->get();
-        $pdf = PDF::loadView('report.AllPdf', compact('orders','totals'));
-        return $pdf->stream('reports.pdf');
-    }
-
-    public function exportExcelPaid()
-    {
-        return (new OrderExportPaid())->download('reports.xlsx');
-    }
 }

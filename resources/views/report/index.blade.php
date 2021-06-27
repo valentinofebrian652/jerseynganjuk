@@ -16,19 +16,37 @@
 
                 <div class="box-header">
                     <a href="{{ route('order_lunas.pdf') }}" class="btn btn-dropbox" target="_blank"> Export PDF </a>
-                    <a href="{{ route('order_lunas.excel') }}" class="btn btn-dropbox"> Export Excel </a>
+                    <a href="{{ route('order_lunas.excel') }}" class="btn btn-dropbox"> Export Excel </a>  <br>  <br>
+                    <center><form method="POST" action="/report/month">
+                    @csrf
+                    <label style="color:white;font-size:100%">Bulan </label>
+                       <select style="width: 150px;height: 30px" class="browser-default" name="bulan">
+                        <option value="">-</option>
+                        <option value="1">Januari</option>
+                        <option value="2">Februari</option>
+                        <option value="3">Maret</option>
+                        <option value="4">April</option>
+                        <option value="5">Mei</option>
+                        <option value="6">Juni</option>
+                        <option value="7">Juli</option>
+                        <option value="8">Agustus</option>
+                        <option value="9">September</option>
+                        <option value="10">Oktober</option>
+                        <option value="11">November</option>
+                        <option value="12">Desember</option>
+                       </select>
+                       <button type="submit" name="submit" class="btn btn-dropbox">Tampilkan</button>
+                      </form> </center>
                 </div>
-
+               
                 <!-- /.box-header -->
                 <div class="box-body">
-                <h4><center> <strong> LAPORAN PENDAPATAN KEUANGAN</strong></center></h4>
-<h4><center><strong>BULAN JUNI 2021</strong></center></h4>
                     <table id="myTable" class="table table-bordered table-hover">
                         <thead>
                         <tr>
                             <th>No</th>
                             <th>Tanggal</th>
-                            <th>Total Bayar</th>
+                            <th>Jumlah</th>
                         </tr>
                         </thead>
 

@@ -5,7 +5,7 @@
                         @endphp
 		<tr>
 			<th>No</th>
-			<th>Judul Buku</th>
+			<th>Tanggal</th>
             <th>Jumlah</th>
 		</tr>
         

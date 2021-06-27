@@ -12,10 +12,14 @@
 */
 
 Route::get('/','BerandaController@index')->name('home');
-Route::get('/report','BerandaController@report')->name('report');
 Route::get('/add-to-cart/{id}','BerandaController@addTocart');
 Route::get('/product/category/{slug}','BerandaController@category');
 Route::get('/product/detail/{id}','BerandaController@detail');
+
+Route::get('/report','ReportController@report')->name('report');
+Route::post('/report/month','ReportController@monthReport')->name('monthReport');
+Route::get('/report/pdf','ReportController@exportPDF')->name('order_lunas.pdf');
+Route::get('/report/excel','ReportController@exportExcelPaid')->name('order_lunas.excel');
 
 Route::get('/shopping-cart','CartController@index');
 Route::get('/shopping-cart/update/{id}', 'CartController@update');
@@ -48,8 +52,6 @@ Route::group(['middleware' => 'auth'], function (){
 
     Route::get('/order','OrderController@index');
     Route::get('/order/detail/{id}','OrderController@detail');
-    Route::get('/report/pdf','OrderController@exportPDF')->name('order_lunas.pdf');
-    Route::get('/report/excel','OrderController@exportExcelPaid')->name('order_lunas.excel');
 
     Route::resource('product','ProductController');
     Route::get('productAdmin/detail/{id}','ProductController@detail')->name('product.detail');

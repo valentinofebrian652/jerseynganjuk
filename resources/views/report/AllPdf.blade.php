@@ -30,7 +30,7 @@
                         <tr>
                             <th>No</th>
                             <th>Tanggal</th>
-                            <th>Total Bayar</th>
+                            <th>Jumlah</th>
                         </tr>
                         </thead>
 
